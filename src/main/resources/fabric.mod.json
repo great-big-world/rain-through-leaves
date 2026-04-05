@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "rain-through-leaves",
+  "version": "${version}",
+
+  "name": "rain-through-leaves",
+  "description": "Rain passes through Leaves and other perforated blocks",
+  "authors": [],
+  "contact": {},
+
+  "license": "All-Rights-Reserved",
+  "icon": "assets/rainthroughleaves/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "client": ["dev.creoii.rainthroughleaves.client.RainThroughLeavesClient"],
+    "main": ["dev.creoii.rainthroughleaves.RainThroughLeaves"]
+  },
+
+  "mixins": [
+    "rain-through-leaves.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
