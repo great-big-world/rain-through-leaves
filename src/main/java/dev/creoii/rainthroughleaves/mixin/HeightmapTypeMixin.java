@@ -28,7 +28,7 @@ public class HeightmapTypeMixin {
     @Inject(method = "<clinit>", at = @At(value = "FIELD", opcode = Opcodes.PUTSTATIC, target = "Lnet/minecraft/world/level/levelgen/Heightmap$Types;$VALUES:[Lnet/minecraft/world/level/levelgen/Heightmap$Types;", shift = At.Shift.AFTER))
     private static void gbw$addWeatherHeightmap(CallbackInfo ci) {
         ArrayList<Heightmap.Types> types = new ArrayList<>(Arrays.asList($VALUES));
-        Heightmap.Types last = types.getLast();
+        Heightmap.Types last = types.get(types.size() - 1);
 
         Heightmap.Types weather = create("WEATHER", last.ordinal() + 1, "WEATHER", Heightmap.Usage.CLIENT, state -> {
             if (state.is(RainThroughLeaves.PERFORATED))

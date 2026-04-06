@@ -9,7 +9,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 
 public class RainThroughLeaves implements ModInitializer {
     public static final Heightmap.Types WEATHER = Heightmap.Types.valueOf("WEATHER");
-    public static final TagKey<Block> PERFORATED = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("rainthroughleaves", "perforated"));
+    public static final TagKey<Block> PERFORATED = TagKey.create(Registries.BLOCK, ResourceLocation.tryBuild("rainthroughleaves", "perforated"));
 
     @Override
     public void onInitialize() {

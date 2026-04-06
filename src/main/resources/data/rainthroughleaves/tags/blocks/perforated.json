@@ -1,0 +1,16 @@
+{
+  "values": [
+    "#minecraft:leaves",
+    "minecraft:iron_trapdoor",
+    "minecraft:acacia_trapdoor",
+    "minecraft:bamboo_trapdoor",
+    "minecraft:jungle_trapdoor",
+    "minecraft:crimson_trapdoor",
+    "minecraft:mangrove_trapdoor",
+    "minecraft:oak_trapdoor",
+    "minecraft:cherry_trapdoor",
+    "minecraft:warped_trapdoor",
+    "minecraft:scaffolding",
+    "minecraft:spawner"
+  ]
+}
