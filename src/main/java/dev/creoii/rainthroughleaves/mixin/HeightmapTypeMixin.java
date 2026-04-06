@@ -1,7 +1,6 @@
 package dev.creoii.rainthroughleaves.mixin;
 
-import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.block.WeatheringCopperGrateBlock;
+import dev.creoii.rainthroughleaves.RainThroughLeaves;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.gen.Invoker;
@@ -32,7 +31,7 @@ public class HeightmapTypeMixin {
         Heightmap.Types last = types.getLast();
 
         Heightmap.Types weather = create("WEATHER", last.ordinal() + 1, 6, "WEATHER", Heightmap.Usage.CLIENT, state -> {
-            if (state.is(BlockTags.LEAVES) || state.getBlock() instanceof WeatheringCopperGrateBlock)
+            if (state.is(RainThroughLeaves.PERFORATED))
                 return false;
             else return state.blocksMotion() || !state.getFluidState().isEmpty();
         });
