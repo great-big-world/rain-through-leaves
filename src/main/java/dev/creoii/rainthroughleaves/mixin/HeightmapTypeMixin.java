@@ -1,7 +1,6 @@
 package dev.creoii.rainthroughleaves.mixin;
 
-import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.block.WeatheringCopperGrateBlock;
+import dev.creoii.rainthroughleaves.RainThroughLeaves;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.gen.Invoker;
@@ -19,7 +18,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 public class HeightmapTypeMixin {
     @SuppressWarnings("InvokerTarget")
     @Invoker("<init>")
-    private static Heightmap.Types create(String internalName, int internalId, final int index, final String id, final Heightmap.Usage purpose, final Predicate<BlockState> blockPredicate) {
+    private static Heightmap.Types create(String internalName, int internalId, final String string2, final Heightmap.Usage usage, final Predicate<BlockState> predicate) {
         throw new AssertionError();
     }
 
@@ -31,8 +30,8 @@ public class HeightmapTypeMixin {
         ArrayList<Heightmap.Types> types = new ArrayList<>(Arrays.asList($VALUES));
         Heightmap.Types last = types.getLast();
 
-        Heightmap.Types weather = create("WEATHER", last.ordinal() + 1, 6, "WEATHER", Heightmap.Usage.CLIENT, state -> {
-            if (state.is(BlockTags.LEAVES) || state.getBlock() instanceof WeatheringCopperGrateBlock)
+        Heightmap.Types weather = create("WEATHER", last.ordinal() + 1, "WEATHER", Heightmap.Usage.CLIENT, state -> {
+            if (state.is(RainThroughLeaves.PERFORATED))
                 return false;
             else return state.blocksMotion() || !state.getFluidState().isEmpty();
         });
