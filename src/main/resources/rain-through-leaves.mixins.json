@@ -4,7 +4,8 @@
   "package": "dev.creoii.rainthroughleaves.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "HeightmapTypeMixin"
+    "HeightmapTypeMixin",
+    "ServerLevelMixin"
   ],
   "client": [
     "WeatherRenderingMixin"
